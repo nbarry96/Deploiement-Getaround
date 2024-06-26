@@ -27,25 +27,25 @@ Lorsqu'un utilisateur retarde le retour d'une voiture louée sur GetAround, cela
 ## Resultats
 Vous pouvez accéder au tableau de bord en ligne à cet emplacement : https://getearound-api-analysis-ac45266e0df6.herokuapp.com/
 
-## Exécution:
+## Exécution
 ### I. Structure du projet
 - **Dockerfile**: Ce fichier contient les instructions pour construire l'image Docker du projet.
 - **app.py**: Ce fichier contient le code principal de l'application.
 - **requirements.txt**: Ce fichier liste toutes les dépendances et versions nécessaires pour exécuter le projet.
 - **README.md**: Ce fichier est la documentation principale du projet, fournissant des instructions d'installation, des exemples d'utilisation et d'autres informations pertinentes.
 
-### II. Prérequis - Installations
+### 1. Prérequis - Installations
 * Avoir un éditeur de code (Visual Studio Code par exemple)
 * Installer les packages requis
 ```bash
 pip install -r requirements.txt
 ```
-## II. Dossier du projet
+## 2. Dossier du projet
 Clonez ce dépôt pour créer votre dossier de projet :
 
 `git clone https://github.com/nbarry96/ML-Supervis-.git`
 
-## III. Créer et déployer l'appliation vers heroku
+## 3. Créer et déployer l'appliation vers heroku
 
 Placez-vous dans le répertoire du projet **Supervised_ML** 
 
@@ -66,6 +66,6 @@ Déployer l'image Docker vers heroku.
 heroku container:release web -a <YOUR_APP_NAME>
 ```
 
-## IV Source de données
+## Source de données
 Le jeu de données utilisé pour ce projet est fourni par Jedha Bootcamp et est disponible [ici](https://full-stack-assets.s3.eu-west-3.amazonaws.com/Deployment/get_around_delay_analysis.xlsx).
 
