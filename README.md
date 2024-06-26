@@ -28,24 +28,24 @@ Lorsqu'un utilisateur retarde le retour d'une voiture louée sur GetAround, cela
 Vous pouvez accéder au tableau de bord en ligne à cet emplacement : https://getearound-api-analysis-ac45266e0df6.herokuapp.com/
 
 ## Exécution
-### I. Structure du projet
+### 1. Structure du projet
 - **Dockerfile**: Ce fichier contient les instructions pour construire l'image Docker du projet.
 - **app.py**: Ce fichier contient le code principal de l'application.
 - **requirements.txt**: Ce fichier liste toutes les dépendances et versions nécessaires pour exécuter le projet.
 - **README.md**: Ce fichier est la documentation principale du projet, fournissant des instructions d'installation, des exemples d'utilisation et d'autres informations pertinentes.
 
-### 1. Prérequis - Installations
+### 2. Prérequis - Installations
 * Avoir un éditeur de code (Visual Studio Code par exemple)
 * Installer les packages requis
 ```bash
 pip install -r requirements.txt
 ```
-## 2. Dossier du projet
+## 3. Dossier du projet
 Clonez ce dépôt pour créer votre dossier de projet :
 
 `git clone https://github.com/nbarry96/ML-Supervis-.git`
 
-## 3. Créer et déployer l'appliation vers heroku
+## 4. Créer et déployer l'appliation vers heroku
 
 Placez-vous dans le répertoire du projet **Supervised_ML** 
 
