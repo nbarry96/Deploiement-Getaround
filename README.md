@@ -163,11 +163,12 @@ Placez-vous dans le répertoire `tracking_serveur_setup`
 ```bash
 cd Deploiement-Getaround/price_predictor/tracking_serveur_setup/
 ```
-* Exécuter run.sh
+* Exécuter run.sh (cecode permet de d'exécuter les 3 modèles et sauvegarder les résultats des meilleurs hyperparamètres dans les fichiers .joblib)
 ```bash
 chmod +X run.sh
 ./run.sh
 ```
+*
 
 
 
