@@ -42,7 +42,6 @@ pip install -r requirements.txt
 ```
 ## 3. Dossier du projet
 Clonez ce dépôt pour créer votre dossier de projet :
-
 `git clone https://github.com/nbarry96/ML-Supervis-.git`
 
 ## 4. Créer et déployer l'appliation vers heroku
@@ -50,7 +49,7 @@ Clonez ce dépôt pour créer votre dossier de projet :
 Placez-vous dans le répertoire du projet **Supervised_ML** 
 
 ```bash
-cd delay-analysis
+cd Deploiement-Getaround/delay-analysis/
 ```
 
 Créez l'application Heroku hébergeant l'application
@@ -85,22 +84,17 @@ Vous pouvez accéder à l'application en ligne hébergeant le serveur MLflow : h
 
 ### 2. Prérequis - Installations
 * Avoir un éditeur de code (Visual Studio Code par exemple)
-* Installer les packages requis
-```bash
-pip install -r requirements.txt
-```
+* 
 ## 3. Dossier du projet
 Clonez ce dépôt pour créer votre dossier de projet :
 
 `git clone https://github.com/nbarry96/ML-Supervis-.git`
 
 ## 4. Déployer l'application vers heroku
-Placez-vous dans le répertoire du projet **Deploiement-Getaround** 
-
+Placez-vous dans le répertoire `tracking_serveur_setup`
 ```bash
-cd delay-analysis
+cd Deploiement-Getaround/price_predictor/tracking_serveur_setup/
 ```
-
 Créez l'application MLflow hébergeant l'application MLflow
 ```bash
 heroku create <YOUR_APP_NAME>
@@ -114,14 +108,21 @@ Déployer l'image Docker vers heroku.
 heroku container:release web -a <YOUR_APP_NAME>
 ```
 ## 5. Entrainez les modèles
-* Remplacez les variables d'environnement par leurs valeurs spécifiques :
+Placez-vous dans le répertoire `training`
+```bash
+cd Deploiement-Getaround/price_predictor/training/
+```
+* Ouvrez le fichier run.sh et Remplacez les variables d'environnement par leurs valeurs spécifiques :
 APP_URI=your_app_uri_here
 AWS_ACCESS_KEY_ID="your_access_key_id_here" \
 AWS_SECRET_ACCESS_KEY="your_secret_access_key_here" \
 
 1. **APP_URI** : Il s'agit de l'URI (Uniform Resource Identifier) l'application MLflow crée sur Heroku. 
   
-2. **AWS_ACCESS_KEY_ID** et **AWS_SECRET_ACCESS_KEY** : Ce sont les identifiants et clés d'accès AWS nécessaires pour authentifier et accéder aux services AWS à partir l'application. 
+2. **AWS_ACCESS_KEY_ID** et **AWS_SECRET_ACCESS_KEY** : Ce sont les identifiants et clés d'accès AWS nécessaires pour authentifier et accéder aux services AWS à partir l'application.
+
+* Créer une images docker avec le Dockerfile
+docker build . -t <YOUR_Docker_NAME>
 
 * Exécuter run.sh
 ```bash
@@ -134,5 +135,41 @@ Les résultats seront automatiquement enregistrés sur le serveur MLFlow. Vous p
 Le jeu de données utilisé pour ce projet est fourni par Jedha Bootcamp et est disponible [ici](https://full-stack-assets.s3.eu-west-3.amazonaws.com/Deployment/get_around_pricing_project.csv)
 
 # API pour la rédiction des prix de location GetAround
-Déployer une API pour le meilleur modèle afin de faire ses prédictions sur les données soumises à l'application
+L'objectif ici est de déployer une API pour le meilleur modèle afin de faire des prédictions sur les données soumises à l'application. J'ai développé une API basée sur les trois modèles pré-entraînés avec FastAPI. Pour chaque modèle, le meilleur en termes d'hyperparamètres ajustés a été choisi. Cette interface permet aux utilisateurs de faire des requêtes et d'obtenir rapidement des prédictions actualisées sur les prix de location de voitures.
 
+## Résultats
+Vous pouvez accéder à l'application en ligne hébergeant le serveur MLflow :
+
+## Exécution
+### 1. Structure du projet
+- **Dockerfile**: Ce fichier contient les instructions pour construire l'image Docker du projet.
+- **main.py**: Code principal de l'application, gérant les requêtes HTTP et l'intégration avec les modèles.
+- **train.py**: Ce fichier contient le code pour l'entraînement des modèles.
+- **requirements.txt**: Ce fichier liste toutes les dépendances et versions nécessaires pour exécuter le projet.
+- **run.sh**: ce fichier contient les commandes et scripts nécessaires pour exécuter et démarrer le processus d'entraînement des modèles
+- **LR_model.joblib, Ridge_model.joblib, RF_model.joblib** : Fichiers où sont enregistrés les meilleurs modèles entraînés.
+- **README.md**: Ce fichier est la documentation principale du projet, fournissant des instructions d'installation, des exemples d'utilisation et d'autres informations pertinentes.
+
+### 2. Prérequis - Installations
+* Avoir un éditeur de code (Visual Studio Code par exemple)
+* 
+## 3. Dossier du projet
+Clonez ce dépôt pour créer votre dossier de projet :
+
+`git clone https://github.com/nbarry96/ML-Supervis-.git`
+
+## 4. Déployer l'application vers heroku
+Placez-vous dans le répertoire `tracking_serveur_setup`
+```bash
+cd Deploiement-Getaround/price_predictor/tracking_serveur_setup/
+```
+* Exécuter run.sh
+```bash
+chmod +X run.sh
+./run.sh
+```
+
+
+
+## Source de données
+Le jeu de données utilisé pour ce projet est fourni par Jedha Bootcamp et est disponible [ici](https://full-stack-assets.s3.eu-west-3.amazonaws.com/Deployment/get_around_pricing_project.csv)
